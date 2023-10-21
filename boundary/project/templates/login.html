@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- {% with messages = get_flashed_messages() %}
+{% if messages %}
+<div class="notification is-danger ">
+    {{ messages[0] }}
+</div>
+{% endif %}
+{% endwith %} -->
+<form method="POST" action="/login">
+	<div class="columns">
+		<div class="container content has-text-centered">
+			<div class="column is-half container content has-text-centered field">
+				<center>
+					</br>
+					{% with messages = get_flashed_messages() %}
+					{% if messages %}
+					<div class="notification is-danger ">
+						{{ messages[0] }}
+					</div>
+					{% endif %}
+					{% endwith %}
+					<p class="control has-icons-left">
+						<input class="input" type="email" name="email" placeholder="Your Email" autofocus=""></br>
+						<span class="icon is-small is-left">
+							<i class="fas fa-envelope"></i>
+						</span>
+					</p>
+					<p class="control has-icons-left">
+						<input class="input" type="password" name="password" placeholder="Your Password"></br>
+						<span class="icon is-small is-left">
+							<i class="fas fa-lock"></i>
+						</span>
+					</p>
+					<label>
+						<input type="checkbox" name="remember">Remember me
+					</label></br></br>
+					
+
+					<button class="button is-black is-outlined is-large">Login</button>
+				</center>
+			</div>
+		</div>
+	</div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hello Bulma!</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+  </head>
+  <body>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js'></script>
+    <div class="tabs is-centered is-large has-background-black">
+      <ul>
+        <li><a href="{{ url_for('main.index') }}" class="has-text-white button is-dark is-outlined is-large">Home</a></li>
+        {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('main.profile') }}"class="has-text-white button is-dark is-outlined is-large">Profile</a></li>
+        {% endif %} {% if not current_user.is_authenticated %}
+        <li><a href="{{ url_for('auth.login') }}"class="has-text-white button is-dark is-outlined is-large">Login</a></li>
+        <li><a href="{{ url_for('auth.signup') }}"class="has-text-white button is-dark is-outlined is-large">Sign up</a></li>
+        {% endif %} {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('auth.logout') }}"class="has-text-white button is-dark is-outlined is-large">Logout</a></li>
+        {% endif %}
+      </ul>
+    </div>
+    {% block content %} {% endblock %}
+  </body>
+</html>

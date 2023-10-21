@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- {% with messages = get_flashed_messages() %}
+{% if messages %}<center>
+<div class="columns ">
+	<div class="column container content has-text-centered is-half notification is-danger">
+    	{{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>
+	</div>
+</div></center>
+{% endif %}
+{% endwith %} -->
+</br>
+<center>
+<form method="POST" action="/signup">
+	<div class="columns">
+		<div class="column container content has-text-centered">
+			<div class="column is-half container content has-text-centered field">
+				<center>
+					<p class="control has-icons-left">
+						<input class="input" type="email" name="email" placeholder="Email" autofocus=""></br>
+						<span class="icon is-small is-left">
+							<i class="fas fa-envelope"></i>
+						</span>
+					</p>
+					<p class="control has-icons-left">
+						<input class="input" type="text" name="name" placeholder="Name"></br>
+						<span class="icon is-small is-left">
+							<i class="fas fa-user"></i>
+						</span>
+					</p>
+					<p class="control has-icons-left">
+						<input class="input" type="password" name="password" placeholder="Password"></br>
+						<span class="icon is-small is-left">
+							<i class="fas fa-lock"></i>
+						</span>
+					</p>
+					{% with messages = get_flashed_messages() %}
+					{% if messages %}
+					
+						<div class="notification is-danger ">
+    						{{ messages[0] }}. Go to <a href="{{ url_for('auth.login') }}">login page</a>
+						</div>
+					
+					{% endif %}
+					{% endwith %}
+					
+					<button class="button is-black is-outlined is-large">Sign Up</button>
+				</center>
+					
+			</div>
+		</div>
+	</div>
+</form>
+</center>
+{% endblock %}
